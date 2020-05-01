@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="">
+        Decimal
+        <input type="text">
+    </label>
+    <label for="">
+        Binary
+        <input type="text">
+    </label>
+    <label for="">
+        Octal
+        <input type="text">
+    </label>
+    <label for="">
+        Hex
+        <input type="text">
+    </label>
+
+    <script>
+        document.addEventListener('change', function() {
+            var input = document.querySelectorAll('input');
+            var Decimal = input[0].value;
+            var Binary = input[1].value;
+            var Octal = input[2].value;
+            var Hex = input[3].value;
+
+            Decimal = parseInt(Decimal, 2);
+            Binary = parseInt(Decimal, 10);
+            Octal = parseInt(Decimal, 8);
+            Hex = parseInt(Decimal, 16);
+
+            console.log(Decimal);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <label>
+      請輸入里程（公里）：
+      <input type="text" />
+    </label>
+    <button>送出</button>
+    <p></p>
+    <script>
+        document.get('button').addEventListener('click', function() {
+            var distance = document.querySelector('input').value * 1000;
+            var total = document.querySelector('p');
+            var fee;
+            if (distance <= 1500)
+                fee = 70;
+            else
+                fee = 70 + 5 * (Math.ceil((distance - 1500) / 500));
+
+            total.innerHTML = "車資：" + fee;
+        });
+    </script>
+</body>
+
+</html>

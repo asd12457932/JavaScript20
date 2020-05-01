@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<button>print 1</button>
+<button>print 2</button>
+<button>print 3</button>
+<button>print 4</button>
+<button>print 5</button>
+<div style="white-space: pre;">
+
+</div>
+
+<body>
+    <script>
+        var btn = document.getElementsByTagName('button');
+        var div = document.querySelector('div');
+        btn[0].addEventListener('click', function() {
+            for (let i = 0; i < 5; i++) {
+                for (let j = 0; j < 5; j++) {
+                    div.append("＊");
+                }
+                var br = document.createElement('br');
+                div.append(br);
+            }
+            btn[0].disabled = true;
+        });
+
+        btn[1].addEventListener('click', function() {
+            for (let i = 0; i < 5; i++) {
+                for (let j = 0; j < 5; j++) {
+                    if (i == 0 || i == 4 || j == 0 || j == 4)
+                        div.append("＊");
+                    else
+                        div.append("　");
+
+                }
+                var br = document.createElement('br');
+                div.append(br);
+            }
+            btn[1].disabled = true;
+        });
+
+        btn[2].addEventListener('click', function() {
+            for (let i = 0; i < 5; i++) {
+                for (let j = 0; j < 5; j++) {
+                    if (i >= j)
+                        div.append("＊");
+                    else
+                        div.append("　");
+
+                }
+                var br = document.createElement('br');
+                div.append(br);
+            }
+            btn[2].disabled = true;
+        });
+
+        btn[3].addEventListener('click', function() {
+            for (let i = 0; i < 5; i++) {
+                for (let j = 0; j < 5; j++) {
+                    if (i == j || i == 4 || j == 0)
+                        div.append("＊");
+                    else
+                        div.append("　");
+
+                }
+                var br = document.createElement('br');
+                div.append(br);
+            }
+            btn[3].disabled = true;
+        });
+
+        btn[4].addEventListener('click', function() {
+            for (let i = 0; i < 5; i++) {
+                for (let j = 0; j < 9; j++) {
+                    if (j + i >= 4 && j + i <= 4 + 2 * i && (j + i) % 2 == 0)
+                        div.append("＊");
+                    else
+                        div.append("　");
+
+                }
+                var br = document.createElement('br');
+                div.append(br);
+            }
+            btn[4].disabled = true;
+        });
+    </script>
+</body>
+
+</html>

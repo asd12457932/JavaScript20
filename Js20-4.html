@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id='btn'>今天的日期</button>
+    <input type="text">
+    <select>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+
+    </select>
+
+    <script>
+        var today = new Date();
+
+        document.getElementById('btn').addEventListener('click', function() {
+            window.alert("今天日期是" + today.getFullYear() + "年" + (today.getMonth() + 1) + "月" + today.getDate() + "日");
+        });
+
+        var input = document.querySelector('input');
+        input.focus();
+        input.addEventListener('blur', function() {
+            window.alert("你不要我了");
+        });
+
+        var select = document.querySelector('select');
+        select.addEventListener('change', function() {
+            window.alert("選項" + select.value + "在這");
+        });
+    </script>
+</body>
+
+</html>

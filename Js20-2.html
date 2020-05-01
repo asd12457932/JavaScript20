@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label>
+        請輸入身份證字號：
+        <input type="text">
+    </label>
+    <button>送出</button>
+    <p></p>
+    <script>
+        document.querySelector('button').addEventListener('click', function() {
+            Id_num = document.querySelector('input').value;
+            Id_array = Array.from(Id_num);
+            var total = 0;
+            var Alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'X', 'Y', 'W', 'Z', 'I', 'O'];
+            Id_array[0] = Alpha.indexOf(Id_array[0]) + 10;
+
+            Alpha_digit = Id_array[0] % 10;
+            Alpha_ten = (Id_array[0] - Alpha_digit) / 10;
+
+            Id_array.shift();
+            Id_array.unshift(Alpha_ten, Alpha_digit);
+
+            for (let i = 1; i < 10; i++) {
+                total = total + parseInt(Id_array[i]) * (10 - i);
+            }
+            total = total + Id_array[0] + parseInt(Id_array[10]);
+
+            if (total % 10 == 0)
+                document.querySelector('p').innerHTML = "true";
+            else
+                document.querySelector('p').innerHTML = "false";
+        });
+    </script>
+</body>
+
+</html>
