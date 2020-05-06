@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="">
+        輸入摩斯電碼（以空白分隔）：
+        <input type="text">
+    </label>
+    <button>轉換</button>
+    <p></p>
+    <script>
+        document.querySelector('button').addEventListener('click', function () {
+            var input = document.querySelector('input');
+            var code = input.value.split(' ');
+            var p = document.querySelector('p');
+            p.innerHTML = "";
+
+            var Alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+            var Mos = ['.-', '-...', '-.-.', '-..', '.', '..-.', '--.', '....', '..', '.---', '-.-', '.-..', '--', '-.', '---', '.--.', '--.-', '.-.', '...', '-', '..-', '...-', '.--', '-..-', '-.--', '--..']
+            var Char = [];
+            for (let i = 0; i < code.length; i++) {
+                var num = Mos.indexOf(code[i]);
+                Char.push(Alpha[num]);
+                p.innerHTML += Char[i];
+            }
+
+        });
+    </script>
+</body>
+
+</html>

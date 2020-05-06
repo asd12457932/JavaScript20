@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="">
+        輸入多個數字（以逗號分隔）：
+        <input type="text">
+    </label>
+    <button>輸入</button>
+    <button>排序</button>
+    <button>反轉</button>
+    <button>最大</button>
+    <button>最小</button>
+    <br>
+    <br>
+    <label for="">
+        輸入執行元素：
+        <input type="text">
+    </label>
+    <button>搜尋</button>
+    <button>新增</button>
+    <button>刪除</button>
+    <button>移除</button>
+    <p>
+    </p>
+    <script>
+        var button = document.querySelectorAll('button');
+        var input = document.querySelectorAll('input');
+        var p = document.querySelector('p');
+
+        button[0].addEventListener('click', function () {
+            var num = input[0].value;
+            var num_array = num.split(',');
+            
+
+            for (let i = 0; i < num_array.length; i++) {
+                num_array[i] = parseInt(num_array[i], 10);
+            }
+            var max = Math.max(...num_array);
+            var min = Math.min(...num_array);
+
+            button[1].addEventListener('click', function () {
+                num_array.sort((a, b) => a - b);
+                p.innerHTML = "目前陣列：" + num_array;
+            });
+            button[2].addEventListener('click', function () {
+                num_array.reverse();
+                p.innerHTML = "目前陣列：" + num_array;
+            });
+            button[3].addEventListener('click', function () {
+                p.innerHTML = "最大值：" + max;
+            });
+            button[4].addEventListener('click', function () {
+                p.innerHTML = "最小值：" + min;
+            });
+
+            button[5].addEventListener('click', function () {
+                var element = input[1].value;
+                button[6].addEventListener('click', function () {
+                num_array.push(element);
+                p.innerHTML = "目前陣列：" + num_array;
+                console.log(num_array);
+            })
+            button[7].addEventListener('click', function () {
+                num_array.indexOf(element);
+                p.innerHTML = "";
+                console.log(num_array);
+            })
+            })
+            
+
+            p.innerHTML = "目前陣列：" + num_array;
+        });
+
+
+
+    </script>
+</body>
+
+</html>
