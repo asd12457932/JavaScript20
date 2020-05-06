@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    document.addEventListener('keydown', function (e) {
+        if (e.which == 71) {
+            window.open('https://www.google.com');
+        }
+        var keyMap = {
+            "27": "Esc",
+            "8": "Backspace",
+            "9": "Tab",
+            "71": "前往Google"
+        }
+        alert(keyMap[e.which]);
+    })
+
+</script>
+
+</html>

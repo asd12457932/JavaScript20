@@ -5,40 +5,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
 </head>
+<style>
+    div {
+        width: 200px;
+        margin: 0 auto;
+    }
+</style>
 
 <body>
-    <label for="">
-        Decimal
-        <input type="text">
-    </label>
-    <label for="">
-        Binary
-        <input type="text">
-    </label>
-    <label for="">
-        Octal
-        <input type="text">
-    </label>
-    <label for="">
-        Hex
-        <input type="text">
-    </label>
+    <div>
+        <label for="">
+            Decimal
+            <input type="text">
+        </label>
+        <label for="">
+            Binary
+            <input type="text">
+        </label>
+        <label for="">
+            Octal
+            <input type="text">
+        </label>
+        <label for="">
+            Hex
+            <input type="text">
+        </label>
+    </div>
 
     <script>
-        document.addEventListener('change', function() {
+        document.addEventListener('keyup', function () {
             var input = document.querySelectorAll('input');
-            var Decimal = input[0].value;
-            var Binary = input[1].value;
-            var Octal = input[2].value;
-            var Hex = input[3].value;
+            for (let i = 0; i < input.length; i++) {
 
-            Decimal = parseInt(Decimal, 2);
-            Binary = parseInt(Decimal, 10);
-            Octal = parseInt(Decimal, 8);
-            Hex = parseInt(Decimal, 16);
+                var hex = 2 ** (i + 1);
+                if (input[i].value.length != 0) {
+                    if (i == 1) {
+                        hex = 10;
+                    }
+                    var Binary = parseInt(input[i].value, hex);
+                    console.log(Binary);
+                }
+                else {
+                    input[i].value = "";
+                }
+            }
 
-            console.log(Decimal);
+
         });
     </script>
 </body>

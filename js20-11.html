@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    document.onkeydown = function event(e) {
+        var key = e.keyCode;
+
+        if (e.ctrlKey && key !== 17) {
+            alert("Ctrl" + "+" + String.fromCharCode(key));
+        }
+        else if(e.shiftKey && key != 16){
+            alert("Shift" + "+" + String.fromCharCode(key));
+        }
+        else if(e.altKey && key != 18){
+            alert("Alt" + "+" + String.fromCharCode(key));
+        }
+
+        e.preventDefault();
+    };
+</script>
+
+</html>
